@@ -31,7 +31,7 @@ public class Main {
     // Entrada a la Aplicación
     public static void main(String[] args) {
         // Lanzar GUI
-        SwingUtilities.invokeLater(() -> {
+        
             // Cargar Propiedades App
             Properties prp = UtilesApp.importarPropiedades(FICHERO_PROPIEDADES);
             
@@ -40,6 +40,6 @@ public class Main {
 
             // Mostrar GUI
             gui.setVisible(true);
-        });
+        
     }
 }
