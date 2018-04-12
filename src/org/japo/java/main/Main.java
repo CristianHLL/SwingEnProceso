@@ -25,21 +25,21 @@ import org.japo.java.libraries.UtilesApp;
  * @author José A. Pacheco Ondoño - joanpaon@gmail.com
  */
 public class Main {
+
     // Fichero Propiedades App
     public static final String FICHERO_PROPIEDADES = "app.properties";
 
     // Entrada a la Aplicación
     public static void main(String[] args) {
-        // Lanzar GUI
-        
-            // Cargar Propiedades App
-            Properties prp = UtilesApp.importarPropiedades(FICHERO_PROPIEDADES);
-            
-            // Instanciar GUI
-            GUI gui = new GUI(prp);
 
-            // Mostrar GUI
-            gui.setVisible(true);
-        
+        // Cargar Propiedades App
+        Properties prp = UtilesApp.importarPropiedades(FICHERO_PROPIEDADES);
+
+        // Instanciar GUI
+        GUI gui = new GUI(prp);
+
+        // Mostrar GUI
+        gui.setVisible(true);
+
     }
 }
