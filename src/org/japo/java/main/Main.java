@@ -20,10 +20,7 @@ import javax.swing.SwingUtilities;
 import org.japo.java.forms.GUI;
 import org.japo.java.libraries.UtilesApp;
 
-/**
- *
- * @author José A. Pacheco Ondoño - joanpaon@gmail.com
- */
+
 public class Main {
     // Fichero Propiedades App
     public static final String FICHERO_PROPIEDADES = "app.properties";
