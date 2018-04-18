@@ -15,9 +15,15 @@
  */
 package org.japo.java.forms;
 
+import com.sun.org.apache.xerces.internal.impl.xs.util.XInt;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.util.Properties;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import org.japo.java.events.KEM;
+import org.japo.java.events.MEM;
+import org.japo.java.events.MMEM;
 import org.japo.java.libraries.UtilesSwing;
 
 /**
@@ -36,6 +42,8 @@ public class GUI extends JFrame {
 
     // Referencias
     private Properties prp;
+    private int xIni;
+    private int yIni;
 
     // Constructor
     public GUI(Properties prp) {
@@ -55,12 +63,23 @@ public class GUI extends JFrame {
         JPanel pnlPpal = new JPanel();
 
         // Ventana Principal
+//        setContentPane(pnlPpal);
+//        setTitle("Swing Manual #00");
+//        setResizable(false);
+//        setSize(600, 400);
+//        setLocationRelativeTo(null);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(pnlPpal);
-        setTitle("Swing Manual #00");
+        setTitle("Swing Manual #02");
         setResizable(false);
-        setSize(600, 400);
+        setSize(500, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        addKeyListener(new KEM(this));
+        addMouseMotionListener(new MMEM(this));
+        addMouseListener(new MEM(this));
+
     }
 
     // Inicialización Anterior    
@@ -77,4 +96,33 @@ public class GUI extends JFrame {
         // Establecer Favicon
         UtilesSwing.establecerFavicon(this, prp.getProperty(PRP_FAVICON, DEF_FAVICON));
     }
+
+    public void gestionarTeclas(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            UtilesSwing.terminarPrograma(this);
+        }
+    }
+
+    public void iniciarArrastre(MouseEvent e) {
+       
+        xIni = e.getXOnScreen();
+        yIni = e.getXOnScreen();
+
+    }
+
+    public void gestionarArrastre(MouseEvent e) {
+        int xFin = e.getXOnScreen();
+        int xOff = xFin - xIni;
+        xIni = xFin;
+
+        int yFin = e.getYOnScreen();
+        int yOff = yFin - yIni;
+        yIni = yFin;
+
+        int xWin = getLocation().x;
+        int yWin = getLocation().y;
+
+        setLocation(xWin + xOff, yWin + yOff);
+    }
+
 }

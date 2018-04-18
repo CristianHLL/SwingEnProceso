@@ -16,6 +16,7 @@
 package org.japo.java.events;
 
 import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import org.japo.java.forms.GUI;
 
 /**
@@ -30,5 +31,9 @@ public class KEM extends KeyAdapter {
     // Constructor
     public KEM(GUI gui) {
         this.gui = gui;
+    }
+    @Override
+    public void keyPressed(KeyEvent e){
+        gui.gestionarTeclas(e);
     }
 }

@@ -16,6 +16,7 @@
 package org.japo.java.events;
 
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import org.japo.java.forms.GUI;
 
 /**
@@ -30,5 +31,11 @@ public class MEM extends MouseAdapter {
     // Constructor
     public MEM(GUI gui) {
         this.gui = gui;
+    }
+
+    
+    @Override
+    public void mousePressed(MouseEvent e) {
+        gui.iniciarArrastre(e);
     }
 }
