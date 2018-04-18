@@ -16,6 +16,7 @@
 package org.japo.java.forms;
 
 import com.sun.org.apache.xerces.internal.impl.xs.util.XInt;
+import java.awt.GridBagLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Properties;
@@ -61,6 +62,8 @@ public class GUI extends JFrame {
     private void initComponents() {
         // Panel Principal
         JPanel pnlPpal = new JPanel();
+        pnlPpal.setBackground(java.awt.Color.MAGENTA);
+        pnlPpal.setLayout(new GridBagLayout());
 
         // Ventana Principal
 //        setContentPane(pnlPpal);
@@ -106,7 +109,7 @@ public class GUI extends JFrame {
     public void iniciarArrastre(MouseEvent e) {
        
         xIni = e.getXOnScreen();
-        yIni = e.getXOnScreen();
+        yIni = e.getYOnScreen();
 
     }
 
